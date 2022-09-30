@@ -9,3 +9,59 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Users {
+  id        String      @id @default(uuid())
+  username  String
+  email     String      @unique
+  password  String
+  createdAt DateTime    @default(now()) @db.Timestamp()
+  UserFilms UserFilms[]
+  Reviews   Reviews[]
+
+  @@map("users")
+}
+
+model Films {
+  id          String      @id @default(uuid())
+  originalId  Int         @unique
+  title       String
+  overview    String
+  posterUrl   String
+  releaseDate String
+  UserFilms   UserFilms[]
+  Reviews     Reviews[]
+
+  @@map("films")
+}
+
+model UserFilms {
+  id        String   @id @default(uuid())
+  userId    String
+  filmId    String
+  liked     Boolean
+  hated     Boolean
+  score     Int
+  createdAt DateTime @default(now()) @db.Timestamp()
+
+  User Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Film Films @relation(fields: [filmId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, filmId])
+  @@map("userFilms")
+}
+
+model Reviews {
+  id        String   @id @default(uuid())
+  userId    String
+  filmId    String
+  title     String
+  content   String
+  createdAt DateTime @default(now()) @db.Timestamp()
+
+  User Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Film Films @relation(fields: [filmId], references: [id], onDelete: Cascade)
+
+  @@unique([title, userId, filmId])
+  @@map("reviews")
+}
