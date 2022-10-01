@@ -1,6 +1,8 @@
 import * as userRepository from '../repositories/userRepository';
 import hashPassword from '../utils/hashPassword';
 import exclude from '../utils/deleteKey';
+import validatePasswordOrFail from '../utils/validatePasswordOrFail';
+import generateToken from '../utils/generateToken';
 
 async function createAccount(
   username: string,
@@ -27,4 +29,19 @@ async function createAccount(
   return exclude(createdUser, 'password');
 }
 
-export { createAccount };
+async function login(email: string, password: string) {
+  const user = await userRepository.findByEmail(email);
+
+  if (!user) {
+    throw {
+      type: 'UNAUTHORIZED',
+      message: 'Wrong email or password!',
+    };
+  }
+
+  await validatePasswordOrFail(password, user.password);
+
+  return generateToken(user.id);
+}
+
+export { createAccount, login };
