@@ -1,8 +1,8 @@
 import * as userRepository from '../repositories/userRepository';
-import hashPassword from '../utils/hashPassword';
 import exclude from '../utils/deleteKey';
-import validatePasswordOrFail from '../utils/validatePasswordOrFail';
-import generateToken from '../utils/generateToken';
+import hashPassword from '../utils/authUtils/hashPassword';
+import validatePasswordOrFail from '../utils/authUtils/validatePasswordOrFail';
+import generateToken from '../utils/authUtils/generateToken';
 
 async function createAccount(
   username: string,
