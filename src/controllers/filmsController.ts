@@ -10,4 +10,12 @@ async function search(req: Request, res: Response) {
   res.send(films).status(httpStatus.OK);
 }
 
-export { search };
+async function details(req: Request, res: Response) {
+  const { id } = req.params;
+
+  const film = await filmsService.getFilmDetails(Number(id));
+
+  res.send(film).status(httpStatus.OK);
+}
+
+export { search, details };
