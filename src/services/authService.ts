@@ -41,7 +41,7 @@ async function login(email: string, password: string) {
 
   await validatePasswordOrFail(password, user.password);
 
-  return generateToken(user.id);
+  return { username: user.username, token: generateToken(user.id) };
 }
 
 export { createAccount, login };
