@@ -25,6 +25,7 @@ function formatFilm(film: any) {
     poster: IMAGES_URL + film.poster_path,
     releaseDate: formatDate(film.release_date),
     runtime: film.runtime,
+    genres: film.genres,
   };
 }
 
