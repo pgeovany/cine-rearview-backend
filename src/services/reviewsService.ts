@@ -22,4 +22,24 @@ async function addReview(
   return await reviewsRepository.create({ userId, filmId, title, content });
 }
 
-export { addReview };
+async function deleteReview(id: string, userId: string) {
+  const review = await reviewsRepository.findById(id);
+
+  if (!review) {
+    throw {
+      type: 'NOT_FOUND',
+      message: 'Review not found',
+    };
+  }
+
+  if (review.userId !== userId) {
+    throw {
+      type: 'FORBIDDEN',
+      message: '',
+    };
+  }
+
+  await reviewsRepository.remove(id);
+}
+
+export { addReview, deleteReview };
