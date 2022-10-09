@@ -18,6 +18,7 @@ model Users {
   createdAt DateTime    @default(now()) @db.Timestamp()
   UserFilms UserFilms[]
   Reviews   Reviews[]
+  Watchlist Watchlist[]
 
   @@map("users")
 }
@@ -31,6 +32,7 @@ model Films {
   releaseDate String
   UserFilms   UserFilms[]
   Reviews     Reviews[]
+  Watchlist   Watchlist[]
 
   @@map("films")
 }
@@ -46,6 +48,19 @@ model UserFilms {
 
   @@unique([userId, filmId])
   @@map("userFilms")
+}
+
+model Watchlist {
+  id        String   @id @default(uuid())
+  userId    String
+  filmId    String
+  createdAt DateTime @default(now()) @db.Timestamp()
+
+  User Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Film Films @relation(fields: [filmId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, filmId])
+  @@map("watchlist")
 }
 
 model Reviews {
