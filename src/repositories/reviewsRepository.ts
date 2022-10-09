@@ -23,4 +23,12 @@ async function findByFilmIdUserIdAndTitle(
   });
 }
 
-export { create, findByFilmIdUserIdAndTitle };
+async function findById(id: string) {
+  return await prisma.reviews.findUnique({ where: { id } });
+}
+
+async function remove(id: string) {
+  return await prisma.reviews.delete({ where: { id } });
+}
+
+export { create, findByFilmIdUserIdAndTitle, findById, remove };
