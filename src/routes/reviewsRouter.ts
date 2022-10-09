@@ -13,4 +13,6 @@ reviewsRouter.post(
   reviewsController.addReview
 );
 
+reviewsRouter.delete('/review/:reviewId', reviewsController.deleteReview);
+
 export default reviewsRouter;

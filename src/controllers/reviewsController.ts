@@ -12,4 +12,13 @@ async function addReview(req: Request, res: Response) {
   res.sendStatus(httpStatus.CREATED);
 }
 
-export { addReview };
+async function deleteReview(req: Request, res: Response) {
+  const { userId } = res.locals;
+  const { reviewId } = req.params;
+
+  await reviewsService.deleteReview(reviewId, userId);
+
+  res.sendStatus(httpStatus.OK);
+}
+
+export { addReview, deleteReview };
