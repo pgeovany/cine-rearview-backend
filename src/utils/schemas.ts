@@ -20,4 +20,9 @@ const filmSchema = joi.object({
   releaseDate: joi.string().required(),
 });
 
-export { signUpSchema, signInSchema, filmSchema };
+const reviewSchema = joi.object({
+  title: joi.string().required(),
+  content: joi.string().required(),
+});
+
+export { signUpSchema, signInSchema, filmSchema, reviewSchema };
