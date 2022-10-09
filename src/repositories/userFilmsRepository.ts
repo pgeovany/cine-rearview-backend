@@ -1,5 +1,5 @@
 import prisma from '../database/database';
-import { UserFilms } from '@prisma/client';
+import { UserFilms, Films } from '@prisma/client';
 
 export type UserFilmsInsertData = Omit<UserFilms, 'id' | 'createdAt'>;
 
@@ -35,10 +35,15 @@ async function findUnique(userId: string, filmId: string) {
 }
 
 async function getUserFilms(userId: string) {
-  return await prisma.userFilms.findMany({
-    where: { userId },
-    include: { Film: true },
-  });
+  return await prisma.$queryRaw<Films>`
+    SELECT films.id, "originalId", title, overview, "posterUrl", "releaseDate"
+    from "userFilms"
+    JOIN users
+    ON users.id = "userFilms"."userId"
+    JOIN films
+    ON films.id = "userFilms"."filmId"
+    WHERE users.id = ${userId}
+  `;
 }
 
 export { create, remove, findUnique, getUserFilms };
