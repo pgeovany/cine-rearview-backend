@@ -11,28 +11,28 @@ datasource db {
 }
 
 model Users {
-  id        String       @id @default(uuid())
+  id        String           @id @default(uuid())
   username  String
-  email     String       @unique
+  email     String           @unique
   password  String
-  createdAt DateTime     @default(now()) @db.Timestamp()
+  createdAt DateTime         @default(now()) @db.Timestamp()
   UserFilms UserFilms[]
   Reviews   Reviews[]
-  Watchlist Watchlists[]
+  Watchlist WatchlistFilms[]
 
   @@map("users")
 }
 
 model Films {
-  id          String       @id @default(uuid())
-  originalId  Int          @unique
+  id          String           @id @default(uuid())
+  originalId  Int              @unique
   title       String
   overview    String
   posterUrl   String
   releaseDate String
   UserFilms   UserFilms[]
   Reviews     Reviews[]
-  Watchlist   Watchlists[]
+  Watchlist   WatchlistFilms[]
 
   @@map("films")
 }
@@ -50,7 +50,7 @@ model UserFilms {
   @@map("userFilms")
 }
 
-model Watchlists {
+model WatchlistFilms {
   id        String   @id @default(uuid())
   userId    String
   filmId    String
@@ -60,7 +60,7 @@ model Watchlists {
   Film Films @relation(fields: [filmId], references: [id], onDelete: Cascade)
 
   @@unique([userId, filmId])
-  @@map("watchlists")
+  @@map("watchlistFilms")
 }
 
 model Reviews {
