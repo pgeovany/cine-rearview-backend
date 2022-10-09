@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as filmsRepository from '../repositories/filmsRepository';
 import * as filmUtils from '../utils/filmUtils';
 
 const { API_KEY, SEARCH_URL, FILM_URL } = process.env;
@@ -25,4 +26,26 @@ async function getFilmDetails(id: number) {
   return { ...film, directors, crew, cast };
 }
 
-export { getFilmsByName, getFilmDetails };
+async function addFilm(
+  originalId: number,
+  title: string,
+  overview: string,
+  posterUrl: string,
+  releaseDate: string
+) {
+  const filmExists = await filmsRepository.findByOriginalId(originalId);
+
+  if (!filmExists) {
+    return await filmsRepository.create({
+      originalId,
+      title,
+      overview,
+      posterUrl,
+      releaseDate,
+    });
+  }
+
+  return;
+}
+
+export { getFilmsByName, getFilmDetails, addFilm };
