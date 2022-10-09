@@ -12,4 +12,12 @@ const signInSchema = joi.object({
   password: joi.string().required(),
 });
 
-export { signUpSchema, signInSchema };
+const filmSchema = joi.object({
+  originalId: joi.number().required(),
+  title: joi.string().required(),
+  overview: joi.string().required(),
+  posterUrl: joi.string().required(),
+  releaseDate: joi.string().required(),
+});
+
+export { signUpSchema, signInSchema, filmSchema };
