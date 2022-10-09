@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:14
+    container_name: db_cinerearview
+    restart: always
+    ports:
+      - 4000:5432
+    env_file:
+      - .env
+    volumes:
+      - pg_cinerearview:/var/lib/pgsql/data
+
+  app:
+    container_name: app
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+volumes:
+  pg_cinerearview:
