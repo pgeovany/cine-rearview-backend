@@ -26,7 +26,7 @@ async function addFilmToWatchlist(
     };
   }
 
-  await watchlistsRepository.create(userId, filmId);
+  await watchlistsRepository.create({ userId, filmId });
 }
 
 async function getFilmId(

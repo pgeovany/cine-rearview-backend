@@ -3,13 +3,8 @@ import { WatchlistFilms, Films } from '@prisma/client';
 
 export type WatchlistInsertData = Omit<WatchlistFilms, 'id' | 'createdAt'>;
 
-async function create(userId: string, filmId: string) {
-  return await prisma.watchlistFilms.create({
-    data: {
-      userId,
-      filmId,
-    },
-  });
+async function create(data: WatchlistInsertData) {
+  return await prisma.watchlistFilms.create({ data });
 }
 
 async function remove(userId: string, filmId: string) {

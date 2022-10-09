@@ -26,7 +26,7 @@ async function addFilmToUserList(
     };
   }
 
-  await userFilmsRepository.create(userId, filmId);
+  await userFilmsRepository.create({ userId, filmId });
 }
 
 async function getFilmId(

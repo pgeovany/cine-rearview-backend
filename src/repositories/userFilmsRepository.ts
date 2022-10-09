@@ -3,13 +3,8 @@ import { UserFilms, Films } from '@prisma/client';
 
 export type UserFilmsInsertData = Omit<UserFilms, 'id' | 'createdAt'>;
 
-async function create(userId: string, filmId: string) {
-  return await prisma.userFilms.create({
-    data: {
-      userId,
-      filmId,
-    },
-  });
+async function create(data: UserFilmsInsertData) {
+  return await prisma.userFilms.create({ data });
 }
 
 async function remove(userId: string, filmId: string) {
