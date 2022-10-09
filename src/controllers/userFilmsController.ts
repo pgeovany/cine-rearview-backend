@@ -27,4 +27,12 @@ async function removeFilmFromUserList(req: Request, res: Response) {
   res.sendStatus(httpStatus.OK);
 }
 
-export { addFilmToUserList, removeFilmFromUserList };
+async function getUserFilms(req: Request, res: Response) {
+  const { userId } = res.locals;
+
+  const films = await userFilmsService.getUserFilms(userId);
+
+  res.send(films).status(httpStatus.OK);
+}
+
+export { addFilmToUserList, removeFilmFromUserList, getUserFilms };
