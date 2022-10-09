@@ -54,6 +54,15 @@ async function getFilmId(
 }
 
 async function removeFilmFromUserList(userId: string, filmId: string) {
+  const filmExists = await userFilmsRepository.findUnique(userId, filmId);
+
+  if (!filmExists) {
+    throw {
+      type: 'NOT_FOUND',
+      message: '',
+    };
+  }
+
   return await userFilmsRepository.remove(userId, filmId);
 }
 

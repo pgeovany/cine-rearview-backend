@@ -12,5 +12,9 @@ userFilmsRouter.post(
   validateSchema(filmSchema),
   userFilmsController.addFilmToUserList
 );
+userFilmsRouter.delete(
+  '/userlist/:filmId',
+  userFilmsController.removeFilmFromUserList
+);
 
 export default userFilmsRouter;

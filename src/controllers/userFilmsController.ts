@@ -15,7 +15,16 @@ async function addFilmToUserList(req: Request, res: Response) {
     posterUrl
   );
 
+  res.sendStatus(httpStatus.CREATED);
+}
+
+async function removeFilmFromUserList(req: Request, res: Response) {
+  const { userId } = res.locals;
+  const { filmId } = req.params;
+
+  await userFilmsService.removeFilmFromUserList(userId, String(filmId));
+
   res.sendStatus(httpStatus.OK);
 }
 
-export { addFilmToUserList };
+export { addFilmToUserList, removeFilmFromUserList };
