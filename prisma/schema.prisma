@@ -39,9 +39,6 @@ model UserFilms {
   id        String   @id @default(uuid())
   userId    String
   filmId    String
-  liked     Boolean
-  hated     Boolean
-  score     Int
   createdAt DateTime @default(now()) @db.Timestamp()
 
   User Users @relation(fields: [userId], references: [id], onDelete: Cascade)
