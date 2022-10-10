@@ -1,0 +1,9 @@
+{
+  "client": "Thunder Client",
+  "environmentName": "cinerearviewEnv",
+  "dateExported": "2022-10-10T20:56:52.306Z",
+  "version": "1.0",
+  "variables": [
+    { "name": "URL", "value": "https://cinerearview.herokuapp.com" }
+  ]
+}

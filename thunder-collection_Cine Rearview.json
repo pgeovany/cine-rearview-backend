@@ -1,0 +1,278 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Cine Rearview",
+  "dateExported": "2022-10-10T20:56:33.226Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "_id": "6700a3f3-2edc-47d6-8af3-965a15c05d18",
+      "name": "Auth",
+      "containerId": "",
+      "created": "2022-10-01T00:20:23.775Z",
+      "sortNum": 10000
+    },
+    {
+      "_id": "fe1215ff-c88e-4543-a479-bae5c2143cb0",
+      "name": "Films",
+      "containerId": "",
+      "created": "2022-10-03T21:25:54.289Z",
+      "sortNum": 20000
+    },
+    {
+      "_id": "3c0def0b-bef2-42d5-83aa-4694355b4186",
+      "name": "Userlist",
+      "containerId": "",
+      "created": "2022-10-09T00:21:14.355Z",
+      "sortNum": 30000
+    },
+    {
+      "_id": "2afc837f-3cd9-4aee-ab7b-3e17277a4275",
+      "name": "Watchlist",
+      "containerId": "",
+      "created": "2022-10-09T19:57:32.190Z",
+      "sortNum": 40000
+    },
+    {
+      "_id": "022defc4-5946-4ccf-a914-7b02a2218fb1",
+      "name": "Reviews",
+      "containerId": "",
+      "created": "2022-10-09T22:31:28.594Z",
+      "sortNum": 50000
+    }
+  ],
+  "requests": [
+    {
+      "_id": "1d530feb-fddb-42d9-904c-0fce55497bcd",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "6700a3f3-2edc-47d6-8af3-965a15c05d18",
+      "name": "Sign-up",
+      "url": "{{URL}}/auth/sign-up",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-10-01T00:20:05.199Z",
+      "modified": "2022-10-09T21:37:52.232Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"username\": \"test\",\n  \"email\": \"test@email.com\",\n  \"password\": \"123\",\n  \"confirmPassword\": \"123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "343fae9a-9d6a-4bfc-8ca5-5e83f9870f90",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "fe1215ff-c88e-4543-a479-bae5c2143cb0",
+      "name": "Search films by name",
+      "url": "{{URL}}/films/search?search=Lillo",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2022-10-03T21:25:46.667Z",
+      "modified": "2022-10-10T20:49:38.225Z",
+      "headers": [],
+      "params": [{ "name": "search", "value": "Lillo", "isPath": false }],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyNTYwMjJmLWU5MWItNGY3MC1iMTVkLWU0N2ZiZDE4OTY1YSIsImlhdCI6MTY2NTM2NzIwOCwiZXhwIjoxNjY1Mzc0NDA4fQ.viYw9V9bEImh6lSpZ4yGhK4-dh05BuEXdz2DHZEokUg"
+      },
+      "tests": []
+    },
+    {
+      "_id": "120881e4-c072-45cc-bc29-6a03ba207347",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "2afc837f-3cd9-4aee-ab7b-3e17277a4275",
+      "name": "Add film",
+      "url": "{{URL}}/watchlist",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-10-09T19:57:41.855Z",
+      "modified": "2022-10-10T20:54:49.622Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"originalId\": 1,\n  \"title\": \"test\",\n  \"overview\": \"testing\",\n  \"posterUrl\": \"url\",\n  \"releaseDate\": \"10/10/1990\"\n}",
+        "form": []
+      },
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM0NTUxMSwiZXhwIjoxNjY1MzUyNzExfQ.1Iems0GEk2WcMxTO7RIKmnbE6zEJF51yc4aQoC8k484"
+      },
+      "tests": []
+    },
+    {
+      "_id": "ea843233-d7cd-43ab-ad7c-08169ab3618e",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "6700a3f3-2edc-47d6-8af3-965a15c05d18",
+      "name": "Sign-in",
+      "url": "{{URL}}/auth/sign-in",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-10-01T00:54:20.952Z",
+      "modified": "2022-10-09T22:53:44.121Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"test@email.com\",\n  \"password\": \"123\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "f5d1b993-d2ca-469a-85b3-b0af2bab0942",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "fe1215ff-c88e-4543-a479-bae5c2143cb0",
+      "name": "Get film details by id",
+      "url": "{{URL}}/films/details/{id}",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2022-10-03T21:26:00.465Z",
+      "modified": "2022-10-10T20:51:58.498Z",
+      "headers": [],
+      "params": [{ "name": "id", "value": "24", "isPath": true }],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NDk4MTg3NywiZXhwIjoxNjY0OTg5MDc3fQ.5TOV6ywee7C1_ZlBk3o9C6RnDBXBmpiZO4W7xpS0Wpo"
+      },
+      "tests": []
+    },
+    {
+      "_id": "ffe27a6c-aa13-407d-a490-7918ddd65496",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "2afc837f-3cd9-4aee-ab7b-3e17277a4275",
+      "name": "Remove film",
+      "url": "{{URL}}/watchlist/{id}",
+      "method": "DELETE",
+      "sortNum": 20000,
+      "created": "2022-10-09T19:57:46.944Z",
+      "modified": "2022-10-10T20:55:05.075Z",
+      "headers": [],
+      "params": [{ "name": "id", "value": "filmId", "isPath": true }],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM0NTUxMSwiZXhwIjoxNjY1MzUyNzExfQ.1Iems0GEk2WcMxTO7RIKmnbE6zEJF51yc4aQoC8k484"
+      },
+      "tests": []
+    },
+    {
+      "_id": "e86acb40-0383-485e-99ac-2aa5ff550716",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "3c0def0b-bef2-42d5-83aa-4694355b4186",
+      "name": "Add film",
+      "url": "{{URL}}/userlist",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2022-10-09T00:21:27.744Z",
+      "modified": "2022-10-10T20:54:00.580Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"originalId\": 1,\n  \"title\": \"test\",\n  \"overview\": \"testing\",\n  \"posterUrl\": \"url\",\n  \"releaseDate\": \"10/10/1990\"\n}",
+        "form": []
+      },
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTI3NDkwNCwiZXhwIjoxNjY1MjgyMTA0fQ.rPJVwng7a2O-86Cx3bPWywL1WMaUBcpTgKHfvlC5qhY"
+      },
+      "tests": []
+    },
+    {
+      "_id": "e3bf6298-4044-4c2f-aa89-8b77170311f2",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "2afc837f-3cd9-4aee-ab7b-3e17277a4275",
+      "name": "Get list",
+      "url": "{{URL}}/watchlist",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2022-10-09T19:57:53.056Z",
+      "modified": "2022-10-09T20:01:13.087Z",
+      "headers": [],
+      "params": [],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM0NTUxMSwiZXhwIjoxNjY1MzUyNzExfQ.1Iems0GEk2WcMxTO7RIKmnbE6zEJF51yc4aQoC8k484"
+      },
+      "tests": []
+    },
+    {
+      "_id": "846fba82-5971-4657-926c-29cb08a37110",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "3c0def0b-bef2-42d5-83aa-4694355b4186",
+      "name": "Remove film",
+      "url": "{{URL}}/userlist/{id}",
+      "method": "DELETE",
+      "sortNum": 50000,
+      "created": "2022-10-09T00:44:06.018Z",
+      "modified": "2022-10-10T20:54:22.386Z",
+      "headers": [],
+      "params": [{ "name": "id", "value": "filmId", "isPath": true }],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM0NTUxMSwiZXhwIjoxNjY1MzUyNzExfQ.1Iems0GEk2WcMxTO7RIKmnbE6zEJF51yc4aQoC8k484"
+      },
+      "tests": []
+    },
+    {
+      "_id": "bd0b6c6e-b55b-48f5-85d4-00977c685c55",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "3c0def0b-bef2-42d5-83aa-4694355b4186",
+      "name": "Get films",
+      "url": "{{URL}}/userlist",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2022-10-09T00:49:23.098Z",
+      "modified": "2022-10-09T20:03:22.780Z",
+      "headers": [],
+      "params": [],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM0NTUxMSwiZXhwIjoxNjY1MzUyNzExfQ.1Iems0GEk2WcMxTO7RIKmnbE6zEJF51yc4aQoC8k484"
+      },
+      "tests": []
+    },
+    {
+      "_id": "ce215329-2de7-44cb-b412-6b9cdb40a750",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "022defc4-5946-4ccf-a914-7b02a2218fb1",
+      "name": "Add review",
+      "url": "{{URL}}/review/{id}",
+      "method": "POST",
+      "sortNum": 80000,
+      "created": "2022-10-09T22:51:46.353Z",
+      "modified": "2022-10-10T20:55:37.295Z",
+      "headers": [],
+      "params": [{ "name": "id", "value": "filmId", "isPath": true }],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"First review\",\n  \"content\": \"Great film!\"\n}",
+        "form": []
+      },
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM1NDg1MywiZXhwIjoxNjY1MzYyMDUzfQ.oRSWiZhNF9xEwMN6a39Oq-nZXmFpX6VQL29Q3zWrCD8"
+      },
+      "tests": []
+    },
+    {
+      "_id": "e6763b64-d461-4260-bec5-df898f97ca5c",
+      "colId": "0f676e73-d654-4de2-af60-f75e53d37a4f",
+      "containerId": "022defc4-5946-4ccf-a914-7b02a2218fb1",
+      "name": "Delete review",
+      "url": "{{URL}}/review/{id}",
+      "method": "DELETE",
+      "sortNum": 85000,
+      "created": "2022-10-09T22:31:39.343Z",
+      "modified": "2022-10-10T20:56:25.822Z",
+      "headers": [],
+      "params": [{ "name": "id", "value": "reviewId", "isPath": true }],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyMGExY2YxLWM4YmYtNGI2ZC05ODZiLWE4YWQ2MjQ1YWE4ZiIsImlhdCI6MTY2NTM1NjAyNCwiZXhwIjoxNjY1MzYzMjI0fQ.EaJJbVedSffA1mv6e32MFY7oxmWvxN5--ADDgPtYGv0"
+      },
+      "tests": []
+    }
+  ]
+}
